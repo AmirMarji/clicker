@@ -1,4 +1,5 @@
 "use client"
+import { buyBuilding } from '../game/page';
 import React, { useState } from 'react';
 interface CoinButtonProps {
   increment: number;
@@ -20,6 +21,7 @@ const CoinButton: React.FC<CoinButtonProps> = ({ increment }) => {
         🪙
       </button>
       <p className="text-xl mt-2">Amount of coins: {counter}</p>
+      <p className="text-xl mt-2">Coins per click: {increment}</p>
     </div>
   );
 };
