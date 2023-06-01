@@ -5,7 +5,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Clicker Game',
-  description: 'A simple clicker game',
+  description: 'A Game about clicking the coins and stuff...',
 }
 
 export default function RootLayout({
@@ -15,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className}`}>{children}</body>
     </html>
-  )
+  );
 }
