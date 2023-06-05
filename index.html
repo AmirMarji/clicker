@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link defer rel="stylesheet" href="./style.css">
     <script defer src="./main.js"></script>
+
     <title>Clicker Game</title>
 </head>
 
@@ -14,8 +15,8 @@
     <div class="container">
         <div class="clicker">
             <h1>Average clicker game</h1>
-            <button id="clicker">Click me!</button>
-            <p id="clicks">coins: 0</p>
+            <button id="clicker-button" onclick="increment()">Click me!</button>
+            <p id="coins">coins: 0</p>
             <p id="clicksPerSecond">coins per second: 0</p>
         </div>
 
@@ -23,51 +24,59 @@
             <h1>Upgrades</h1>
             <div class="upgrade">
                 <h2>Upgrade 1</h2>
-                <p>Cost: 10</p>
-                <p>Coins per second: 1</p>
-                <button id="upgrade1">Buy</button>
+                <p id="upgrade1-cost">Cost: 10</p>
+                <p id="upgrade1-cps">Coins per second: 1</p>
+                <p id="upgrade1-owned">Owned: 0</p>
+                <button id="upgrade1-button">Buy</button>
             </div>
             <div class="upgrade">
                 <h2>Upgrade 2</h2>
-                <p>Cost: 100</p>
-                <p>Coins per second: 10</p>
-                <button id="upgrade2">Buy</button>
+                <p id="upgrade2-cost">Cost: 100</p>
+                <p id="upgrade2-cps">Coins per second: 10</p>
+                <p id="upgrade2-owned">Owned: 0</p>
+                <button id="upgrade2-button">Buy</button>
             </div>
             <div class="upgrade">
                 <h2>Upgrade 3</h2>
-                <p>Cost: 1000</p>
-                <p>Coins per second: 100</p>
-                <button id="upgrade3">Buy</button>
+                <p id="upgrade3-cost">Cost: 1000</p>
+                <p id="upgrade3-cps">Coins per second: 100</p>
+                <p id="upgrade3-owned">Owned: 0</p>
+                <button id="upgrade3-button">Buy</button>
             </div>
             <div class="upgrade">
                 <h2>Upgrade 4</h2>
-                <p>Cost: 10000</p>
-                <p>Coins per second: 1000</p>
-                <button id="upgrade4">Buy</button>
+                <p id="upgrade4-cost">Cost: 10000</p>
+                <p id="upgrade4-cps">Coins per second: 1000</p>
+                <p id="upgrade4-owned">Owned: 0</p>
+                <button id="upgrade4-button">Buy</button>
             </div>
             <div class="upgrade">
                 <h2>Upgrade 5</h2>
-                <p>Cost: 100000</p>
-                <p>Coins per second: 10000</p>
-                <button id="upgrade5">Buy</button>
+                <p id="upgrade5-cost">Cost: 100000</p>
+                <p id="upgrade5-cps">Coins per second: 10000</p>
+                <p id="upgrade5-owned">Owned: 0</p>
+                <button id="upgrade5-button">Buy</button>
             </div>
             <div class="upgrade">
                 <h2>Upgrade 6</h2>
-                <p>Cost: 1000000</p>
-                <p>Coins per second: 100000</p>
-                <button id="upgrade6">Buy</button>
+                <p id="upgrade6-cost">Cost: 1000000</p>
+                <p id="upgrade6-cps">Coins per second: 100000</p>
+                <p id="upgrade6-owned">Owned: 0</p>
+                <button id="upgrade6-button">Buy</button>
             </div>
             <div class="upgrade">
                 <h2>Upgrade 7</h2>
-                <p>Cost: 10000000</p>
-                <p>Coins per second: 1000000</p>
-                <button id="upgrade7">Buy</button>
+                <p id="upgrade7-cost">Cost: 10000000</p>
+                <p id="upgrade7-cps">Coins per second: 1000000</p>
+                <p id="upgrade7-owned">Owned: 0</p>
+                <button id="upgrade7-button">Buy</button>
             </div>
             <div class="upgrade">
                 <h2>Upgrade 8</h2>
-                <p>Cost: 100000000</p>
-                <p>Coins per second: 10000000</p>
-                <button id="upgrade8">Buy</button>
+                <p id="upgrade8-cost">Cost: 100000000</p>
+                <p id="upgrade8-cps">Coins per second: 10000000</p>
+                <p id="upgrade8-owned">Owned: 0</p>
+                <button id="upgrade8-button">Buy</button>
             </div>
         </div>
 
@@ -91,10 +100,6 @@
         </div>
 
     </div>
-
-
-
-
 
 </body>
 

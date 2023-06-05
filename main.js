@@ -1,14 +1,120 @@
-let clicker = document.getElementById("clicker");
-let counter = document.getElementById("clicks");
+// Get DOM elements
+let clicker = document.getElementById("clicker-button");
+let counter = document.getElementById("coins");
+
+// Initialize click counter
 let clicks = 0;
 
-clicker.addEventListener("click", function () {
+// Increment click counter and update display
+function increment() {
     clicks++;
-    //update the counter
     counter.innerHTML = 'coins:' + clicks;
-
 }
-);
 
+// Define upgrades
+let upgrades = [
+    {
+        name: "upgrade1",
+        cost: 10,
+        coinsPerSecond: 1,
+        owned: 0
+    },
+    {
+        name: "upgrade2",
+        cost: 100,
+        coinsPerSecond: 10,
+        owned: 0
+    },
+    {
+        name: "upgrade3",
+        cost: 1000,
+        coinsPerSecond: 100,
+        owned: 0
+    },
+    {
+        name: "upgrade4",
+        cost: 10000,
+        coinsPerSecond: 1000,
+        owned: 0
+    },
+    {
+        name: "upgrade5",
+        cost: 100000,
+        coinsPerSecond: 10000,
+        owned: 0
+    },
+    {
+        name: "upgrade6",
+        cost: 1000000,
+        coinsPerSecond: 100000,
+        owned: 0
+    },
+    {
+        name: "upgrade7",
+        cost: 10000000,
+        coinsPerSecond: 1000000,
+        owned: 0
+    },
+    {
+        name: "upgrade8",
+        cost: 100000000,
+        coinsPerSecond: 10000000,
+        owned: 0
+    }
+];
+// Buy an upgrade
+function buyUpgrade(index) {
+    let upgrade = upgrades[index];
+    if (clicks >= upgrade.cost) {
+        // Deduct coins and increase owned count
+        clicks -= upgrade.cost;
+        upgrade.owned++;
+        // Increase upgrade cost
+        upgrade.cost = Math.round(upgrade.cost * 1.1);
+        updateUpgradeDisplay(index);
+    }
+}
 
-//TODO create a function that will update a CPS realtime
+// Update the display of a specific upgrade
+function updateUpgradeDisplay(index) {
+    let upgrade = upgrades[index];
+    let upgradeButton = document.getElementById(`upgrade${index + 1}-button`);
+    let costDisplay = document.getElementById(`upgrade${index + 1}-cost`);
+    let ownedDisplay = document.getElementById(`upgrade${index + 1}-owned`);
+    let cpsDisplay = document.getElementById(`upgrade${index + 1}-cps`);
+
+    // Assign click event to upgrade button
+    upgradeButton.onclick = function () {
+        buyUpgrade(index);
+    };
+
+    // Update display text
+    costDisplay.innerHTML = "Cost: " + upgrade.cost;
+    ownedDisplay.innerHTML = "Owned: " + upgrade.owned;
+    cpsDisplay.innerHTML = "Coins per second: " + upgrade.coinsPerSecond;
+}
+
+// Update the display of all upgrades
+function updateAllUpgradesDisplay() {
+    for (let i = 0; i < upgrades.length; i++) {
+        updateUpgradeDisplay(i);
+    }
+}
+
+// Update the total coins per second
+function getTotalCPS() {
+    let totalCPS = 0;
+    for (let i = 0; i < upgrades.length; i++) {
+        totalCPS += upgrades[i].coinsPerSecond * upgrades[i].owned;
+    }
+    return totalCPS;
+}
+
+// Update the click counter every second
+setInterval(function () {
+    clicks += getTotalCPS();
+    counter.innerHTML = "coins: " + clicks;
+}, 1000);
+
+// Initial display update
+updateAllUpgradesDisplay();
