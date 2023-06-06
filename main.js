@@ -11,6 +11,17 @@ function increment() {
     counter.innerHTML = 'coins:' + clicks;
 }
 
+//add clicking sound
+
+let audio = new Audio('./mixkit-arcade-game-jump-coin-216.wav');
+
+clicker.addEventListener('click', function () {
+    audio.play();
+});
+
+
+
+
 // Define upgrades
 let upgrades = [
     {
@@ -72,6 +83,7 @@ function buyUpgrade(index) {
         // Increase upgrade cost
         upgrade.cost = Math.round(upgrade.cost * 1.1);
         updateUpgradeDisplay(index);
+        audio.play();
     }
 }
 
