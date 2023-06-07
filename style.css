@@ -30,6 +30,7 @@ button {
     height: 100px;
     width: 50%;
     padding: 0 20px;
+    color: aqua;
 
 
 }
@@ -37,11 +38,23 @@ button {
 .upgrades {
     width: 50%;
     padding: 0 20px;
+    outline: auto;
+    color: aqua;
 }
 
 .settings {
     width: 50%;
     padding: 0 20px;
+    outline: auto;
+    color: aqua;
+
+}
+
+.boost{
+    width: 50%;
+    padding: 0 20px;
+    outline: auto;
+    color: aqua;
 }
 
 /* Dark Mode */

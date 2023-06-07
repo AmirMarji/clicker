@@ -30,49 +30,57 @@ let upgrades = [
         name: "upgrade1",
         cost: 10,
         coinsPerSecond: 1,
-        owned: 0
+        owned: 0,
+        originalCost: 10
     },
     {
         name: "upgrade2",
         cost: 100,
         coinsPerSecond: 10,
-        owned: 0
+        owned: 0,
+        originalCost: 100
     },
     {
         name: "upgrade3",
         cost: 1000,
         coinsPerSecond: 100,
-        owned: 0
+        owned: 0,
+        originalCost: 1000
     },
     {
         name: "upgrade4",
         cost: 10000,
         coinsPerSecond: 1000,
-        owned: 0
+        owned: 0,
+        originalCost: 10000
     },
     {
         name: "upgrade5",
         cost: 100000,
         coinsPerSecond: 10000,
-        owned: 0
+        owned: 0,
+        originalCost: 100000
     },
     {
         name: "upgrade6",
         cost: 1000000,
         coinsPerSecond: 100000,
-        owned: 0
+        owned: 0,
+        originalCost: 1000000
     },
     {
         name: "upgrade7",
         cost: 10000000,
         coinsPerSecond: 1000000,
-        owned: 0
+        owned: 0,
+        originalCost: 10000000
     },
     {
         name: "upgrade8",
         cost: 100000000,
         coinsPerSecond: 10000000,
-        owned: 0
+        owned: 0,
+        originalCost: 100000000
     }
 ];
 // Buy an upgrade
