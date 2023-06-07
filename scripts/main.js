@@ -1,3 +1,5 @@
+console.log("main.js loaded");
+
 // Get DOM elements
 let clicker = document.getElementById("clicker-button");
 let counter = document.getElementById("coins");
