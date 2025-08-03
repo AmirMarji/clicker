@@ -10,19 +10,19 @@ let clicks = 0;
 // Increment click counter and update display
 function increment() {
     clicks++;
-    counter.innerHTML = 'coins:' + clicks;
+    updateCoinsDisplay();
 }
 
-//add clicking sound
-
+// Add clicking sound
 let audio = new Audio('./mixkit-arcade-game-jump-coin-216.wav');
 
+// Play sound and increment coins on click
 clicker.addEventListener('click', function () {
+    increment();
+    // Reset audio if already playing for rapid clicks
+    audio.currentTime = 0;
     audio.play();
 });
-
-
-
 
 // Define upgrades
 let upgrades = [
@@ -83,6 +83,7 @@ let upgrades = [
         originalCost: 100000000
     }
 ];
+
 // Buy an upgrade
 function buyUpgrade(index) {
     let upgrade = upgrades[index];
@@ -93,6 +94,9 @@ function buyUpgrade(index) {
         // Increase upgrade cost
         upgrade.cost = Math.round(upgrade.cost * 1.1);
         updateUpgradeDisplay(index);
+        updateCoinsDisplay();
+        // Play sound
+        audio.currentTime = 0;
         audio.play();
     }
 }
@@ -105,15 +109,15 @@ function updateUpgradeDisplay(index) {
     let ownedDisplay = document.getElementById(`upgrade${index + 1}-owned`);
     let cpsDisplay = document.getElementById(`upgrade${index + 1}-cps`);
 
-    // Assign click event to upgrade button
-    upgradeButton.onclick = function () {
-        buyUpgrade(index);
-    };
-
-    // Update display text
-    costDisplay.innerHTML = "Cost: " + upgrade.cost;
-    ownedDisplay.innerHTML = "Owned: " + upgrade.owned;
-    cpsDisplay.innerHTML = "Coins per second: " + upgrade.coinsPerSecond;
+    // Check if elements exist before assigning
+    if (upgradeButton) {
+        upgradeButton.onclick = function () {
+            buyUpgrade(index);
+        };
+    }
+    if (costDisplay) costDisplay.innerHTML = "Cost: " + upgrade.cost;
+    if (ownedDisplay) ownedDisplay.innerHTML = "Owned: " + upgrade.owned;
+    if (cpsDisplay) cpsDisplay.innerHTML = "Coins per second: " + upgrade.coinsPerSecond;
 }
 
 // Update the display of all upgrades
@@ -132,11 +136,19 @@ function getTotalCPS() {
     return totalCPS;
 }
 
-// Update the click counter every second
+// Update the display for coins and coins per second
+function updateCoinsDisplay() {
+    if (counter) counter.innerHTML = 'coins: ' + clicks;
+    const cpsElem = document.getElementById("clicksPerSecond");
+    if (cpsElem) cpsElem.innerHTML = 'coins per second: ' + getTotalCPS();
+}
+
+// Update coins and coins per second every second
 setInterval(function () {
     clicks += getTotalCPS();
-    counter.innerHTML = "coins: " + clicks;
+    updateCoinsDisplay();
 }, 1000);
 
 // Initial display update
 updateAllUpgradesDisplay();
+updateCoinsDisplay();
